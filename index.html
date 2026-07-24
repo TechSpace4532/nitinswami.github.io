@@ -298,6 +298,43 @@
   .commit li::before{
     content:"›"; position:absolute; left:0; top:0; color:var(--cyan); font-family:var(--font-mono);
   }
+  .role-badge{
+    font-family:var(--font-mono); font-size:11px; color:var(--purple);
+    background:rgba(155,140,255,0.12); border:1px solid rgba(155,140,255,0.3);
+    padding:3px 10px; border-radius:100px;
+  }
+
+  .lead-panel{
+    margin-top:18px;
+    border:1px solid rgba(155,140,255,0.28);
+    border-left:3px solid var(--purple);
+    background:rgba(155,140,255,0.05);
+    border-radius:var(--radius-sm);
+    padding:20px 22px;
+  }
+  .lead-panel-head{display:flex; gap:12px; align-items:flex-start; margin-bottom:12px;}
+  .lead-icon{
+    width:30px; height:30px; border-radius:9px; flex-shrink:0;
+    background:linear-gradient(135deg, var(--purple), var(--cyan));
+    display:flex; align-items:center; justify-content:center;
+    font-family:var(--font-mono); font-size:11px; font-weight:700; color:#0B0E12;
+  }
+  .lead-title{font-family:var(--font-display); font-size:15px; font-weight:600;}
+  .lead-sub{font-family:var(--font-mono); font-size:11.5px; color:var(--text-faint); margin-top:2px;}
+  .lead-panel ul{display:flex; flex-direction:column; gap:8px; margin-bottom:14px;}
+  .lead-panel li{
+    font-size:14px; color:var(--text-muted); padding-left:18px; position:relative;
+  }
+  .lead-panel li::before{
+    content:"›"; position:absolute; left:0; top:0; color:var(--purple); font-family:var(--font-mono);
+  }
+  .network-note{
+    font-size:13px; color:var(--text-muted); line-height:1.6;
+    background:var(--surface); border:1px solid var(--border);
+    border-radius:var(--radius-sm); padding:14px 16px;
+  }
+  .network-note strong{color:var(--amber); font-family:var(--font-mono); font-size:11.5px; text-transform:uppercase; letter-spacing:.04em; display:block; margin-bottom:4px;}
+  .project-card .network-note{margin:2px 0 14px;}
 
   /* ---------- PROJECTS ---------- */
   .filter-row{
@@ -456,7 +493,7 @@
 
 <header>
   <nav class="wrap">
-    <div class="logo"><span class="logo-mark"><img src="profile.jpg" alt=""></span> Nitin Swami</div>
+    <div class="logo"><span class="logo-mark"><img src="profile.jpeg" alt=""></span> Nitin Swami</div>
     <div class="navlinks">
       <a href="#experience">Experience</a>
       <a href="#projects">Projects</a>
@@ -473,7 +510,7 @@
     <div class="wrap">
       <div>
         <div class="identity">
-          <div class="identity-photo"><img src="profile.jpg" alt="Nitin Swami"></div>
+          <div class="identity-photo"><img src="profile.jpeg" alt="Nitin Swami"></div>
           <div class="identity-text">
             <div class="name">Nitin Swami</div>
             <div class="role">ME (CS &amp; IT) · Pune, India</div>
@@ -481,16 +518,16 @@
         </div>
         <div class="eyebrow">React Native · React JS · Cross‑platform</div>
         <h1>Building apps that fit <span class="accent">in your pocket.</span></h1>
-        <p class="lede">Front-end &amp; mobile engineer with 6+ years shipping cross-platform apps for storage, healthcare, logistics, e‑commerce and social platforms — from first wireframe to App Store.</p>
+        <p class="lede">Front-end, mobile &amp; team lead engineer with 6+ years shipping cross-platform apps for banking, healthcare, storage, logistics and social platforms — from first wireframe to App Store, including secured, closed-network environments for financial services clients.</p>
         <div class="hero-cta">
           <a class="btn btn-primary" href="#projects">View projects →</a>
           <a class="btn btn-ghost" href="mailto:nitinswami59@gmail.com">Get in touch</a>
         </div>
         <div class="hero-meta">
           <div class="hero-stat"><div class="num">6+</div><div class="label">Years experience</div></div>
-          <div class="hero-stat"><div class="num">14+</div><div class="label">Apps shipped</div></div>
-          <div class="hero-stat"><div class="num">2</div><div class="label">Companies</div></div>
-          <div class="hero-stat"><div class="num">iOS / Android</div><div class="label">Platforms</div></div>
+          <div class="hero-stat"><div class="num">16+</div><div class="label">Apps shipped</div></div>
+          <div class="hero-stat"><div class="num">3</div><div class="label">Companies</div></div>
+          <div class="hero-stat"><div class="num">Team Lead</div><div class="label">Current scope</div></div>
         </div>
       </div>
 
@@ -527,8 +564,41 @@
       <div class="timeline">
         <div class="commit">
           <div class="commit-head">
+            <h3>IT Analyst (Front End)</h3>
+            <span class="commit-date">Mar 2025 → Present</span>
+            <span class="role-badge">Team Lead · SBI Cards</span>
+          </div>
+          <div class="commit-org">Tata Consultancy Services</div>
+          <ul>
+            <li>Responsible for developing and maintaining production-grade UI for mobile applications.</li>
+            <li>Handle post-production defect fixes, performance optimizations, and production support activities.</li>
+            <li>Convert UX designs and business requirements into real-time, scalable mobile UI aligned with user stories.</li>
+            <li>Monitor application health using Datadog and Qualtrics, and manage incidents &amp; changes through ServiceNow.</li>
+          </ul>
+
+          <div class="lead-panel">
+            <div class="lead-panel-head">
+              <span class="lead-icon">TL</span>
+              <div>
+                <div class="lead-title">Team Lead — SBI Cards (Financial Services)</div>
+                <div class="lead-sub">Leading a front-end team on a banking client engagement</div>
+              </div>
+            </div>
+            <ul>
+              <li>Set the architectural vision, chose the tools and frameworks, and contributed hands-on to technical design and code.</li>
+              <li>Broke down work, managed task delegation, oversaw code quality, and ensured timely delivery.</li>
+              <li>Coached team members, mentored junior developers, and fostered a productive team environment.</li>
+            </ul>
+            <div class="network-note">
+              <strong>Working environment:</strong> As this is a financial institution, development happens inside a highly secured, closed corporate network with no open internet access. Debugging, code reviews and problem-solving are done collaboratively with the team using internal tooling and documentation rather than public resources — sharpening independent troubleshooting and pairing skills.
+            </div>
+          </div>
+        </div>
+
+        <div class="commit">
+          <div class="commit-head">
             <h3>Software Engineer (Front End)</h3>
-            <span class="commit-date">Jan 2022 → Present</span>
+            <span class="commit-date">Jan 2022 → Mar 2025</span>
           </div>
           <div class="commit-org">Mobisoft Infotech Pvt. Ltd.</div>
           <ul>
@@ -561,9 +631,9 @@
   <section id="projects">
     <div class="wrap">
       <div class="section-head">
-        <div class="eyebrow">App Store · 14 builds</div>
+        <div class="eyebrow">App Store · 16 builds</div>
         <h2>Selected projects</h2>
-        <p>A cross-section of production apps — storage, health, logistics, entertainment and e‑commerce — built end to end with React Native and React JS.</p>
+        <p>A cross-section of production apps — banking, healthcare, storage, logistics and entertainment — built end to end with React Native and React JS, including a Team Lead engagement on a financial services platform.</p>
       </div>
 
       <div class="project-grid" id="project-grid"></div>
@@ -622,7 +692,13 @@
         <div class="skill-row">
           <div class="cat">Project management</div>
           <div class="chip-row">
-            <span class="chip">Jira</span>
+            <span class="chip">Jira</span><span class="chip">ServiceNow</span>
+          </div>
+        </div>
+        <div class="skill-row">
+          <div class="cat">Analytics &amp; monitoring</div>
+          <div class="chip-row">
+            <span class="chip">Google Analytics</span><span class="chip">Adobe Analytics</span><span class="chip">Datadog</span><span class="chip">Qualtrics</span>
           </div>
         </div>
       </div>
@@ -657,7 +733,7 @@
 <footer>
   <div class="wrap">
     <div class="contact-card">
-      <div class="identity-photo" style="width:64px; height:64px; margin:0 auto 18px;"><img src="profile.jpg" alt="Nitin Swami"></div>
+      <div class="identity-photo" style="width:120px; height:120px; margin:0 auto 18px;"><img src="profile.jpeg" alt="Nitin Swami"></div>
       <div class="eyebrow" style="justify-content:center;">Contact</div>
       <h2>Let's build something for iOS &amp; Android.</h2>
       <p>Open to React Native and React JS opportunities — reach out any time.</p>
@@ -695,8 +771,32 @@
   // ---- Project data (from resume) ----
   const projects = [
     {
-      id: 1, name: "MyStorPal App", category: "Storage · Utility",
-      date: "Nov 2024 — Present", color: ["#5FD3D9","#3AA9AF"],
+      id: 1, name: "SBI Cards", category: "Banking · Financial Services",
+      date: "Jan 2026 — Present", color: ["#F5B74B","#9B8CFF"],
+      desc: "SBI Cards FeetOnline App — led the front-end team as Team Lead on a financial services client engagement.",
+      bullets: [
+        "Set the architectural vision, chose the tools/frameworks, and contributed hands-on to technical design and code.",
+        "Broke down work, managed task delegation, oversaw code quality, and ensured timely delivery.",
+        "Coached team members, mentored junior developers, and fostered a productive team environment."
+      ],
+      note: "Developed inside a highly secured, closed corporate network typical of financial institutions — no open internet access. Issues were debugged and resolved collaboratively with the team using internal tooling and documentation.",
+      role: "Team Lead",
+      tags:["React Native","Leadership","Financial Services"], featured:true
+    },
+    {
+      id: 2, name: "UHG Healthcare App", category: "Healthcare",
+      date: "Mar 2025 — Dec 2025", color: ["#5FD3D9","#9B8CFF"],
+      desc: "Healthcare mobile app converting UX designs into real-time, production-ready UI.",
+      bullets: [
+        "Delivered user-story-based UI features and handled post-production defect fixes to improve app stability.",
+        "Monitored and optimized application health using Datadog for reliable production support.",
+        "Managed incidents via ServiceNow and integrated Qualtrics and Adobe Analytics for user insights."
+      ],
+      tags:["React Native","TypeScript","Datadog"], featured:true
+    },
+    {
+      id: 3, name: "MyStorPal App", category: "Storage · Utility",
+      date: "Nov 2024 — Mar 2025", color: ["#5FD3D9","#3AA9AF"],
       desc: "Storage facility app for locating units, gate access codes and directions.",
       bullets: [
         "Lookup unit number and gate access codes, get directions to your storage facility.",
@@ -707,7 +807,7 @@
       tags:["React Native","TypeScript","REST API"], featured:true
     },
     {
-      id: 2, name: "Jitt Entertainment", category: "Social · Contests",
+      id: 4, name: "Jitt Entertainment", category: "Social · Contests",
       date: "Aug 2024 — Nov 2024", color: ["#9B8CFF","#6E5CD9"],
       desc: "Online contest social app for fashion, music, dance and sports challenges.",
       bullets: [
@@ -717,29 +817,6 @@
         "Firebase notifications and Apple/Facebook/Twitter/Gmail social logins."
       ],
       tags:["React Native","Firebase","Stripe"], featured:true
-    },
-    {
-      id: 3, name: "Timesheet Mgmt", category: "In-house · Productivity",
-      date: "Jul 2024 — Aug 2024", color: ["#F5B74B","#D69A2D"],
-      desc: "Timesheet management app for employee daily updates.",
-      bullets: [
-        "Project management, employee directory and allocation features.",
-        "Utilized React Native table components for data-dense screens.",
-        "JSON-based dynamic data handling for RESTful API communication."
-      ],
-      tags:["React Native","TypeScript"]
-    },
-    {
-      id: 4, name: "Hop to Work", category: "Corporate carpooling",
-      date: "May 2024 — Jul 2024", color: ["#FF7A6E","#D9564A"],
-      desc: "Corporate carpooling app connecting verified employees for shared rides.",
-      bullets: [
-        "Secure employee network with authentication for verified users only.",
-        "Firebase notifications for real-time trip and ride updates.",
-        "Feedback and rating system, plus My Profile and My Pools screens.",
-        "Ride scheduling UI with pickup/drop-off customization and recurring rides."
-      ],
-      tags:["React Native","Firebase"]
     },
     {
       id: 5, name: "Fold Health", category: "Healthcare · Web + Mobile",
@@ -753,7 +830,30 @@
       tags:["React Native","Native Base"], featured:true
     },
     {
-      id: 6, name: "OXXO Ecommerce", category: "E‑commerce",
+      id: 6, name: "Timesheet Mgmt", category: "In-house · Productivity",
+      date: "Jul 2024 — Aug 2024", color: ["#F5B74B","#D69A2D"],
+      desc: "Timesheet management app for employee daily updates.",
+      bullets: [
+        "Project management, employee directory and allocation features.",
+        "Utilized React Native table components for data-dense screens.",
+        "JSON-based dynamic data handling for RESTful API communication."
+      ],
+      tags:["React Native","TypeScript"]
+    },
+    {
+      id: 7, name: "Hop to Work", category: "Corporate carpooling",
+      date: "May 2024 — Jul 2024", color: ["#FF7A6E","#D9564A"],
+      desc: "Corporate carpooling app connecting verified employees for shared rides.",
+      bullets: [
+        "Secure employee network with authentication for verified users only.",
+        "Firebase notifications for real-time trip and ride updates.",
+        "Feedback and rating system, plus My Profile and My Pools screens.",
+        "Ride scheduling UI with pickup/drop-off customization and recurring rides."
+      ],
+      tags:["React Native","Firebase"]
+    },
+    {
+      id: 8, name: "OXXO Ecommerce", category: "E‑commerce",
       date: "Sept 2023 — Jan 2024", color: ["#F5B74B","#FF7A6E"],
       desc: "Cross-platform online shopping app for Android and iOS.",
       bullets: [
@@ -764,7 +864,7 @@
       tags:["React Native","Redux","JWT"]
     },
     {
-      id: 7, name: "Ample Hair", category: "Web app",
+      id: 9, name: "Ample Hair", category: "Web app",
       date: "Mar 2023 — Sept 2023", color: ["#9B8CFF","#5FD3D9"],
       desc: "Led front-end development for an accounting website's interactive features.",
       bullets: [
@@ -775,7 +875,7 @@
       tags:["React JS","Kendo React","Redux"]
     },
     {
-      id: 8, name: "UIUC Accounting App", category: "Web app",
+      id: 10, name: "UIUC Accounting App", category: "Web app",
       date: "Dec 2023 — Mar 2023", color: ["#FF7A6E","#F5B74B"],
       desc: "Key components of a university accounting web app built with React JS and TypeScript.",
       bullets: [
@@ -785,7 +885,7 @@
       tags:["React JS","TypeScript","Analytics"]
     },
     {
-      id: 9, name: "Plitio Pharmacy", category: "Healthcare delivery",
+      id: 11, name: "Plitio Pharmacy", category: "Healthcare delivery",
       date: "Jul 2022 — Dec 2022", color: ["#5FD3D9","#F5B74B"],
       desc: "Canadian online pharmacy delivery app with telehealth features.",
       bullets: [
@@ -796,7 +896,7 @@
       tags:["React Native","Moneris","Crashlytics"]
     },
     {
-      id: 10, name: "Sound Proof Puppy", category: "Training · Media",
+      id: 12, name: "Sound Proof Puppy", category: "Training · Media",
       date: "Jun 2022 — Jul 2022", color: ["#9B8CFF","#FF7A6E"],
       desc: "Sound-proof puppy training app for an Australian organization.",
       bullets: [
@@ -807,7 +907,7 @@
       tags:["React Native"]
     },
     {
-      id: 11, name: "Lanter Delivery", category: "Logistics",
+      id: 13, name: "Lanter Delivery", category: "Logistics",
       date: "Jan 2022 — Jun 2022", color: ["#F5B74B","#9B8CFF"],
       desc: "B2B parcel delivery app for automotive spare parts logistics.",
       bullets: [
@@ -818,7 +918,7 @@
       tags:["React Native","Firebase"]
     },
     {
-      id: 12, name: "Auction Mobility", category: "Marketplace",
+      id: 14, name: "Auction Mobility", category: "Marketplace",
       date: "May 2021 — Jan 2022", color: ["#FF7A6E","#5FD3D9"],
       desc: "Auction platform for creating, bidding and managing lots.",
       bullets: [
@@ -828,7 +928,7 @@
       tags:["React Native","Testing"]
     },
     {
-      id: 13, name: "Waarsaa Social", category: "Audio social",
+      id: 15, name: "Waarsaa Social", category: "Audio social",
       date: "Mar 2021 — May 2021", color: ["#5FD3D9","#FF7A6E"],
       desc: "Audio-sharing social mobile app with profiles and playback.",
       bullets: [
@@ -839,7 +939,7 @@
       tags:["React Native","Firebase"]
     },
     {
-      id: 14, name: "Avetta Worker Mgmt", category: "Supply chain",
+      id: 16, name: "Avetta Worker Mgmt", category: "Supply chain",
       date: "Mar 2020 — Mar 2021", color: ["#9B8CFF","#F5B74B"],
       desc: "B2B workforce app for attendance, training and site compliance.",
       bullets: [
@@ -871,22 +971,23 @@
   });
 
   // Build featured project cards
-  const featuredIds = [1,2,4,5];
+  const featuredIds = [1,2,3,4,5];
   const cardGrid = document.getElementById('project-grid');
   projects.filter(p=>featuredIds.includes(p.id)).forEach(p=>{
     const card = document.createElement('article');
-    card.className = 'project-card' + (p.id===1||p.id===5 ? ' featured' : '');
+    card.className = 'project-card' + (p.id===1||p.id===2 ? ' featured' : '');
     card.id = 'proj-' + p.id;
     card.innerHTML = `
       <div class="card-top">
         <div class="card-icon" style="background:linear-gradient(135deg, ${p.color[0]}, ${p.color[1]})">${initials(p.name)}</div>
         <div class="card-title-row">
           <h3>${p.name}</h3>
-          <div class="card-meta"><span class="card-cat">${p.category}</span><span>${p.date}</span></div>
+          <div class="card-meta"><span class="card-cat">${p.category}</span><span>${p.date}</span>${p.role ? `<span class="role-badge">${p.role}</span>` : ''}</div>
         </div>
       </div>
       <p class="desc">${p.desc}</p>
       <ul>${p.bullets.map(b=>`<li>${b}</li>`).join('')}</ul>
+      ${p.note ? `<div class="network-note"><strong>Working environment</strong>${p.note}</div>` : ''}
       <div class="tag-row">${p.tags.map(t=>`<span class="tag">${t}</span>`).join('')}</div>
     `;
     cardGrid.appendChild(card);
