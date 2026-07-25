@@ -242,7 +242,9 @@
     display:flex; align-items:center; justify-content:center;
     font-family:var(--font-mono); font-size:13px; font-weight:700; color:#0B0E12;
     transition:transform .18s ease;
+    overflow:hidden;
   }
+  .app-icon .glyph img{width:100%; height:100%; object-fit:cover;}
   .app-icon:hover .glyph, .app-icon:focus-visible .glyph{transform:scale(1.08) translateY(-2px);}
   .app-icon .name{
     font-size:9px; color:var(--text-muted); text-align:center; line-height:1.15;
@@ -372,6 +374,21 @@
     width:44px; height:44px; border-radius:12px; flex-shrink:0;
     display:flex; align-items:center; justify-content:center;
     font-family:var(--font-mono); font-weight:700; font-size:13px; color:#0B0E12;
+    overflow:hidden;
+  }
+  .card-icon img{width:100%; height:100%; object-fit:cover;}
+  .card-link-btn{
+    font-family:var(--font-mono); font-size:11.5px; font-weight:500;
+    display:inline-flex; align-items:center; gap:6px;
+    padding:8px 14px; border-radius:100px;
+    border:1px solid var(--border); color:var(--text);
+    margin-top:4px; margin-bottom:14px;
+    transition:border-color .18s ease, background .18s ease, transform .18s ease;
+  }
+  .card-link-btn:hover{border-color:var(--cyan); background:rgba(95,211,217,0.08); transform:translateY(-2px);}
+  .stat-badge{
+    font-family:var(--font-mono); font-size:10.5px; color:var(--amber);
+    background:rgba(245,183,75,0.1); padding:2px 8px; border-radius:100px;
   }
   .card-title-row{display:flex; flex-direction:column; gap:3px;}
   .card-title-row h3{font-size:17px;}
@@ -408,8 +425,17 @@
   }
   .more-row .idx{font-family:var(--font-mono); font-size:11px; color:var(--text-faint); width:20px;}
   .more-row .dot{width:8px; height:8px; border-radius:50%; flex-shrink:0;}
-  .more-row .txt strong{display:block; font-size:14px; font-weight:600;}
+  .more-row .more-icon{width:26px; height:26px; border-radius:8px; flex-shrink:0; overflow:hidden;}
+  .more-row .more-icon img{width:100%; height:100%; object-fit:cover;}
+  .more-row .txt strong{display:flex; align-items:center; gap:6px; font-size:14px; font-weight:600;}
   .more-row .txt span{font-family:var(--font-mono); font-size:11px; color:var(--text-faint);}
+  .more-row a.more-visit{
+    margin-left:auto; font-family:var(--font-mono); font-size:10.5px; color:var(--cyan);
+    border:1px solid var(--border); padding:5px 10px; border-radius:100px; white-space:nowrap;
+    transition:border-color .18s ease;
+  }
+  .more-row a.more-visit:hover{border-color:var(--cyan);}
+  .more-row{justify-content:space-between;}
 
   /* ---------- SKILLS ---------- */
   .skills-panel{
@@ -500,7 +526,7 @@
       <a href="#skills">Skills</a>
       <a href="#education">Education</a>
     </div>
-    <a class="nav-cta" href="mailto:nitinswami59@gmail.com">nitinswami59@gmail.com</a>
+    <a class="nav-cta" href="mailto:nitinswami59@yahoo.in">nitinswami59@yahoo.in</a>
   </nav>
 </header>
 
@@ -521,7 +547,7 @@
         <p class="lede">Front-end, mobile &amp; team lead engineer with 6+ years shipping cross-platform apps for banking, healthcare, storage, logistics and social platforms — from first wireframe to App Store, including secured, closed-network environments for financial services clients.</p>
         <div class="hero-cta">
           <a class="btn btn-primary" href="#projects">View projects →</a>
-          <a class="btn btn-ghost" href="mailto:nitinswami59@gmail.com">Get in touch</a>
+          <a class="btn btn-ghost" href="mailto:nitinswami59@yahoo.in">Get in touch</a>
         </div>
         <div class="hero-meta">
           <div class="hero-stat"><div class="num">6+</div><div class="label">Years experience</div></div>
@@ -733,12 +759,12 @@
 <footer>
   <div class="wrap">
     <div class="contact-card">
-      <div class="identity-photo" style="width:120px; height:120px; margin:0 auto 18px;"><img src="profile.jpeg" alt="Nitin Swami"></div>
+      <div class="identity-photo" style="width:64px; height:64px; margin:0 auto 18px;"><img src="profile.jpeg" alt="Nitin Swami"></div>
       <div class="eyebrow" style="justify-content:center;">Contact</div>
       <h2>Let's build something for iOS &amp; Android.</h2>
       <p>Open to React Native and React JS opportunities — reach out any time.</p>
       <div class="contact-links">
-        <a class="btn btn-primary" href="mailto:nitinswami59@gmail.com">nitinswami59@gmail.com</a>
+        <a class="btn btn-primary" href="mailto:nitinswami59@yahoo.in">nitinswami59@yahoo.in</a>
         <a class="btn btn-ghost" href="tel:9028034532">9028034532</a>
         <a class="btn btn-ghost" href="https://linkedin.com/in/nitin--swami" target="_blank" rel="noopener">LinkedIn</a>
       </div>
@@ -772,7 +798,7 @@
   const projects = [
     {
       id: 1, name: "SBI Cards", category: "Banking · Financial Services",
-      date: "Jan 2026 — Present", color: ["#F5B74B","#9B8CFF"],
+      date: "Mar 2025 — Present", color: ["#F5B74B","#9B8CFF"],
       desc: "SBI Cards FeetOnline App — led the front-end team as Team Lead on a financial services client engagement.",
       bullets: [
         "Set the architectural vision, chose the tools/frameworks, and contributed hands-on to technical design and code.",
@@ -781,18 +807,22 @@
       ],
       note: "Developed inside a highly secured, closed corporate network typical of financial institutions — no open internet access. Issues were debugged and resolved collaboratively with the team using internal tooling and documentation.",
       role: "Team Lead",
-      tags:["React Native","Leadership","Financial Services"], featured:true
+      tags:["React Native","Leadership","Financial Services"], featured:true,
+      logo:"logos/sbic.jpg",
     },
     {
       id: 2, name: "UHG Healthcare App", category: "Healthcare",
-      date: "Mar 2025 — Dec 2025", color: ["#5FD3D9","#9B8CFF"],
+      date: "Mar 2025 — Present", color: ["#5FD3D9","#9B8CFF"],
       desc: "Healthcare mobile app converting UX designs into real-time, production-ready UI.",
       bullets: [
         "Delivered user-story-based UI features and handled post-production defect fixes to improve app stability.",
         "Monitored and optimized application health using Datadog for reliable production support.",
         "Managed incidents via ServiceNow and integrated Qualtrics and Adobe Analytics for user insights."
       ],
-      tags:["React Native","TypeScript","Datadog"], featured:true
+      tags:["React Native","TypeScript","Datadog"],
+      logo:"logos/uhg.webp",
+      link:"https://play.google.com/store/apps/details?id=com.uhg.mobile.uhcglobal&hl=en_IN",
+      featured:true
     },
     {
       id: 3, name: "MyStorPal App", category: "Storage · Utility",
@@ -804,7 +834,10 @@
         "Implemented JSON schemas for data validation in RESTful API integration.",
         "Used TypeScript for static type checking, improving maintainability."
       ],
-      tags:["React Native","TypeScript","REST API"], featured:true
+      tags:["React Native","TypeScript","REST API"],
+      logo:"logos/myStorePal.webp",
+      link:"https://play.google.com/store/apps/details?id=com.xpssolutions.mystorpal&hl=en",
+      featured:true
     },
     {
       id: 4, name: "Jitt Entertainment", category: "Social · Contests",
@@ -816,7 +849,11 @@
         "Withdraw awards and earnings through Stripe payment gateway.",
         "Firebase notifications and Apple/Facebook/Twitter/Gmail social logins."
       ],
-      tags:["React Native","Firebase","Stripe"], featured:true
+      tags:["React Native","Firebase","Stripe"],
+      logo:"logos/jitt.webp",
+      link:"https://play.google.com/store/apps/details?id=com.jittentertainment1&hl=en_IN",
+      stat:"100K+ users",
+      featured:true
     },
     {
       id: 5, name: "Fold Health", category: "Healthcare · Web + Mobile",
@@ -827,7 +864,10 @@
         "Built visit summary, annual wellness summary and interventions modules.",
         "Implemented event tracking to gather user interaction data for improvements."
       ],
-      tags:["React Native","Native Base"], featured:true
+      tags:["React Native","Native Base"],
+      logo:"logos/foldHealth.webp",
+      link:"https://play.google.com/store/apps/details?id=com.foldhealth.patient&hl=en_IN",
+      featured:true
     },
     {
       id: 6, name: "Timesheet Mgmt", category: "In-house · Productivity",
@@ -838,7 +878,8 @@
         "Utilized React Native table components for data-dense screens.",
         "JSON-based dynamic data handling for RESTful API communication."
       ],
-      tags:["React Native","TypeScript"]
+      tags:["React Native","TypeScript"],
+      link:"https://play.google.com/store/apps?hl=en_IN",
     },
     {
       id: 7, name: "Hop to Work", category: "Corporate carpooling",
@@ -850,7 +891,9 @@
         "Feedback and rating system, plus My Profile and My Pools screens.",
         "Ride scheduling UI with pickup/drop-off customization and recurring rides."
       ],
-      tags:["React Native","Firebase"]
+      tags:["React Native","Firebase"],
+      logo:"logos/hopToWork.webp",
+      link:"https://play.google.com/store/apps/details?id=com.mobisoft.hop2work&hl=en_IN"
     },
     {
       id: 8, name: "OXXO Ecommerce", category: "E‑commerce",
@@ -861,7 +904,9 @@
         "OTP login and JWT-based authentication for secure, token-based access.",
         "Maintained graphics and branding standards throughout the UI."
       ],
-      tags:["React Native","Redux","JWT"]
+      tags:["React Native","Redux","JWT"],
+      link:"https://play.google.com/store/apps/details?id=co.iridian.oxxodev&hl=en_IN",
+      logo:"logos/oxxo.png",
     },
     {
       id: 9, name: "Ample Hair", category: "Web app",
@@ -872,7 +917,10 @@
         "Designed Employee Maintenance and mobile modules, streamlining HR and transport processes.",
         "Implemented coding best practices for faster load times."
       ],
-      tags:["React JS","Kendo React","Redux"]
+      tags:["React JS","Kendo React","Redux"],
+      link:"https://amplehair.com/",
+      linkLabel:"Website",
+      logo:"logos/ampleHair.jpeg"
     },
     {
       id: 10, name: "UIUC Accounting App", category: "Web app",
@@ -882,7 +930,10 @@
         "Built footer, review module, message-us feature and profile module.",
         "Integrated Google Analytics events for behavior insights."
       ],
-      tags:["React JS","TypeScript","Analytics"]
+      tags:["React JS","TypeScript","Analytics"],
+      logo:"logos/uiuc.jpeg",
+      link:"https://illinois.edu/",
+      linkLabel:"Website",
     },
     {
       id: 11, name: "Plitio Pharmacy", category: "Healthcare delivery",
@@ -893,7 +944,9 @@
         "Integrated Moneris payment gateway for secure in-app transactions.",
         "Added Crashlytics for real-time crash reporting and monitoring."
       ],
-      tags:["React Native","Moneris","Crashlytics"]
+      tags:["React Native","Moneris","Crashlytics"],
+      logo:"logos/plitio.webp",
+      link:"https://play.google.com/store/apps/details?id=com.medXsol.plitio&hl=en_IN"
     },
     {
       id: 12, name: "Sound Proof Puppy", category: "Training · Media",
@@ -904,7 +957,9 @@
         "Voice instruction recording, training tips and videos.",
         "Published and updated the app on the Play Store."
       ],
-      tags:["React Native"]
+      tags:["React Native"],
+      logo:"logos/soundProofPupSchool.webp",
+      link:"https://play.google.com/store/apps/details?id=com.edvantech.soundproofpuppytraining&hl=en"
     },
     {
       id: 13, name: "Lanter Delivery", category: "Logistics",
@@ -915,7 +970,10 @@
         "QR/barcode scanning for parcel delivery and warehouse management.",
         "Firebase Crashlytics for stability monitoring."
       ],
-      tags:["React Native","Firebase"]
+      tags:["React Native","Firebase"],
+      link:"https://www.lanterdeliverysystems.com/",
+      linkLabel:"Website",
+      logo:"logos/lanter.jpeg",
     },
     {
       id: 14, name: "Auction Mobility", category: "Marketplace",
@@ -925,7 +983,10 @@
         "Create auctions, place bids, and buy or sell lots after registration.",
         "Automated unit and integration testing for system reliability."
       ],
-      tags:["React Native","Testing"]
+      tags:["React Native","Testing"],
+      logo:"logos/auctionMobility.png",
+      link:"https://www.auctionmobility.com/",
+      linkLabel:"Website"
     },
     {
       id: 15, name: "Waarsaa Social", category: "Audio social",
@@ -936,7 +997,8 @@
         "Audio recording and playback with a smooth listening experience.",
         "Like, comment and share social interactions; Firebase analytics."
       ],
-      tags:["React Native","Firebase"]
+      tags:["React Native","Firebase"],
+      link:"https://play.google.com/store/apps?hl=en_IN",
     },
     {
       id: 16, name: "Avetta Worker Mgmt", category: "Supply chain",
@@ -947,7 +1009,9 @@
         "Pie charts and graphs for graphical work-compliance status.",
         "Firebase Crashlytics, Analytics, deep links and push notifications."
       ],
-      tags:["React Native","Firebase","Analytics"]
+      tags:["React Native","Firebase","Analytics"],
+      logo:"logos/avetta.webp",
+      link:"https://play.google.com/store/apps/details?id=com.avetta.android.avettaworkermanagement&hl=en_IN"
     }
   ];
 
@@ -961,7 +1025,8 @@
     const btn = document.createElement('button');
     btn.className = 'app-icon';
     btn.setAttribute('aria-label', 'Jump to ' + p.name);
-    btn.innerHTML = `<span class="glyph" style="background:linear-gradient(135deg, ${p.color[0]}, ${p.color[1]})">${initials(p.name)}</span><span class="name">${p.name}</span>`;
+    const glyphInner = p.logo ? `<img src="${p.logo}" alt="${p.name} logo" loading="lazy">` : initials(p.name);
+    btn.innerHTML = `<span class="glyph" style="background:linear-gradient(135deg, ${p.color[0]}, ${p.color[1]})">${glyphInner}</span><span class="name">${p.name}</span>`;
     btn.addEventListener('click', ()=>{
       const target = document.getElementById('proj-' + p.id);
       if(target) target.scrollIntoView({behavior:'smooth', block:'center'});
@@ -977,17 +1042,19 @@
     const card = document.createElement('article');
     card.className = 'project-card' + (p.id===1||p.id===2 ? ' featured' : '');
     card.id = 'proj-' + p.id;
+    const cardIconInner = p.logo ? `<img src="${p.logo}" alt="${p.name} logo" loading="lazy">` : initials(p.name);
     card.innerHTML = `
       <div class="card-top">
-        <div class="card-icon" style="background:linear-gradient(135deg, ${p.color[0]}, ${p.color[1]})">${initials(p.name)}</div>
+        <div class="card-icon" style="background:linear-gradient(135deg, ${p.color[0]}, ${p.color[1]})">${cardIconInner}</div>
         <div class="card-title-row">
           <h3>${p.name}</h3>
-          <div class="card-meta"><span class="card-cat">${p.category}</span><span>${p.date}</span>${p.role ? `<span class="role-badge">${p.role}</span>` : ''}</div>
+          <div class="card-meta"><span class="card-cat">${p.category}</span><span>${p.date}</span>${p.role ? `<span class="role-badge">${p.role}</span>` : ''}${p.stat ? `<span class="stat-badge">${p.stat}</span>` : ''}</div>
         </div>
       </div>
       <p class="desc">${p.desc}</p>
       <ul>${p.bullets.map(b=>`<li>${b}</li>`).join('')}</ul>
       ${p.note ? `<div class="network-note"><strong>Working environment</strong>${p.note}</div>` : ''}
+      ${p.link ? `<a class="card-link-btn" href="${p.link}" target="_blank" rel="noopener">${p.linkLabel || 'View on Play Store'} ↗</a>` : ''}
       <div class="tag-row">${p.tags.map(t=>`<span class="tag">${t}</span>`).join('')}</div>
     `;
     cardGrid.appendChild(card);
@@ -999,10 +1066,14 @@
     const row = document.createElement('div');
     row.className = 'more-row';
     row.id = 'proj-' + p.id;
+    const iconHtml = p.logo
+      ? `<span class="more-icon"><img src="${p.logo}" alt="${p.name} logo" loading="lazy"></span>`
+      : `<span class="dot" style="background:${p.color[0]}"></span>`;
     row.innerHTML = `
       <span class="idx">${String(p.id).padStart(2,'0')}</span>
-      <span class="dot" style="background:${p.color[0]}"></span>
-      <span class="txt"><strong>${p.name}</strong><span>${p.category} · ${p.date}</span></span>
+      ${iconHtml}
+      <span class="txt"><strong>${p.name}${p.stat ? `<span class="stat-badge">${p.stat}</span>` : ''}</strong><span>${p.category} · ${p.date}</span></span>
+      ${p.link ? `<a class="more-visit" href="${p.link}" target="_blank" rel="noopener">${p.linkLabel || 'Play Store'} ↗</a>` : ''}
     `;
     moreList.appendChild(row);
   });
