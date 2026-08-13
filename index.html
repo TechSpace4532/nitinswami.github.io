@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Nitin Swami — React Native &amp; React Developer</title>
-<meta name="description" content="Nitin Swami — React Native and React JS Developer, 6+ years building cross-platform mobile apps and web apps.">
+<meta name="description" content="Nitin Swami — React Native and React JS Developer, 6.5+ years building cross-platform mobile apps and web apps.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -513,6 +513,128 @@
     .hero{padding:56px 0 60px;}
     section{padding:64px 0;}
   }
+
+  /* ---------- PDF / PRINT BUTTON (screen only) ---------- */
+  .pdf-btn{
+    position:fixed; bottom:26px; right:26px; z-index:200;
+    display:inline-flex; align-items:center; gap:8px;
+    font-family:var(--font-mono); font-size:13px; font-weight:500;
+    padding:13px 20px; border-radius:100px;
+    background:var(--text); color:#0B0E12;
+    box-shadow:0 12px 28px rgba(0,0,0,0.4);
+    border:none; cursor:pointer;
+    transition:transform .18s ease;
+  }
+  .pdf-btn:hover{transform:translateY(-2px);}
+
+  /* =====================================================
+     PRINT / SAVE-AS-PDF STYLESHEET
+     Goal: strip decorative/interactive chrome, keep only
+     the information an HR reviewer needs, on as few
+     pages as possible.
+  ===================================================== */
+  @media print{
+    @page{ margin:12mm 14mm; }
+
+    *{ animation:none !important; transition:none !important; box-shadow:none !important; }
+
+    html, body{
+      background:#fff !important;
+      color:#171A21 !important;
+      font-size:11.5px;
+    }
+    body::before{ content:none !important; }
+    body{ background-image:none !important; }
+
+    header, .pdf-btn, .phone-stage, .hero-cta, .filter-row,
+    .nav-cta, .navlinks{ display:none !important; }
+
+    a{ color:#171A21 !important; text-decoration:none; }
+    .wrap{ max-width:100% !important; padding:0 !important; }
+
+    section{ padding:10px 0 !important; }
+    .hero{ padding:0 0 10px !important; }
+    hr.rule{ margin:2px 0 !important; border-color:#ddd !important; }
+
+    .hero .wrap{ display:block !important; }
+    .identity{ margin-bottom:8px; }
+    .identity-photo{ width:44px !important; height:44px !important; }
+    .identity-photo img{ border:none !important; }
+    .eyebrow{ font-size:9.5px; color:#171A21 !important; }
+    .eyebrow::before{ background:#171A21 !important; box-shadow:none !important; }
+    .hero h1{ font-size:20px !important; margin:6px 0 6px !important; -webkit-text-fill-color:#171A21 !important; }
+    .hero h1 .accent{ -webkit-text-fill-color:#171A21 !important; color:#171A21 !important; }
+    .hero p.lede{ font-size:11px !important; color:#3A414D !important; max-width:100% !important; margin-bottom:10px !important; }
+    .hero-meta{ gap:18px !important; }
+    .hero-stat .num{ font-size:14px !important; }
+    .hero-stat .label{ font-size:8.5px !important; }
+
+    .section-head{ margin-bottom:10px !important; }
+    .section-head h2{ font-size:15px !important; margin-top:4px !important; }
+    .section-head p{ font-size:10px !important; margin-top:4px !important; }
+
+    .timeline{ padding-left:14px !important; }
+    .timeline::before{ opacity:0.5 !important; background:#999 !important; }
+    .commit{ padding-bottom:12px !important; break-inside:avoid; }
+    .commit::before{ border-color:#171A21 !important; width:8px !important; height:8px !important; left:-15px !important; }
+    .commit-head h3{ font-size:12.5px !important; }
+    .commit-date{ font-size:9px !important; background:none !important; border:1px solid #ccc !important; color:#171A21 !important; }
+    .commit-org{ font-size:10.5px !important; margin-bottom:4px !important; color:#3A414D !important; }
+    .commit ul{ gap:2px !important; }
+    .commit li{ font-size:10px !important; color:#2A2F38 !important; }
+    .lead-panel{ border:1px solid #ccc !important; background:#fafafa !important; break-inside:avoid; padding:8px 10px !important; }
+    .role-badge{ border:1px solid #ccc !important; background:none !important; color:#171A21 !important; }
+    .network-note{ break-inside:avoid; font-size:9.5px !important; }
+
+    .project-grid{ grid-template-columns:1fr 1fr !important; gap:8px !important; }
+    .project-card{ padding:8px 10px !important; border:1px solid #ddd !important; break-inside:avoid; background:#fff !important; }
+    .project-card.featured{ grid-column:span 1 !important; }
+    .card-icon{ width:26px !important; height:26px !important; border-radius:6px !important; }
+    .card-title-row h3{ font-size:11.5px !important; }
+    .card-meta{ font-size:8.5px !important; gap:5px !important; }
+    .card-cat{ background:none !important; border:1px solid #ccc !important; color:#171A21 !important; }
+    .stat-badge{ background:none !important; border:1px solid #ccc !important; color:#171A21 !important; }
+    .project-card p.desc{ font-size:9.5px !important; margin-bottom:5px !important; }
+    .project-card ul{ gap:2px !important; margin-bottom:5px !important; }
+    .project-card li{ font-size:9px !important; color:#2A2F38 !important; }
+    .project-card li:nth-child(n+3){ display:none; }
+    .card-link-btn{ border:none !important; padding:0 !important; font-size:8.5px !important; text-decoration:underline; margin:0 0 4px !important; }
+    .tag-row{ gap:4px !important; }
+    .tag{ font-size:8px !important; padding:1px 6px !important; border-color:#ddd !important; }
+
+    .more-projects{ margin-top:10px !important; }
+    .more-list{ grid-template-columns:1fr 1fr !important; background:#ddd !important; }
+    .more-row{ padding:6px 8px !important; gap:8px !important; }
+    .more-row .more-icon{ width:18px !important; height:18px !important; }
+    .more-row .idx{ font-size:9px !important; }
+    .more-row .txt strong{ font-size:10.5px !important; }
+    .more-row .txt span{ font-size:8.5px !important; }
+    .more-row a.more-visit{ font-size:8px !important; border:none !important; text-decoration:underline; padding:0 !important; }
+
+    .skills-panel{ border:1px solid #ddd !important; }
+    .panel-head{ display:none !important; }
+    .skill-row{ grid-template-columns:130px 1fr !important; padding:6px 10px !important; border-color:#eee !important; }
+    .skill-row .cat{ font-size:9.5px !important; }
+    .chip{ font-size:9.5px !important; padding:2px 8px !important; background:none !important; border-color:#ddd !important; }
+
+    .edu-grid{ grid-template-columns:1fr 1fr !important; gap:8px !important; }
+    .edu-card{ padding:10px !important; border:1px solid #ddd !important; break-inside:avoid; }
+    .edu-card .deg{ font-size:12px !important; }
+    .edu-card .school{ font-size:10px !important; }
+    .edu-card .score{ font-size:9px !important; background:none !important; border:1px solid #ccc !important; color:#171A21 !important; }
+
+    footer{ padding:14px 0 0 !important; }
+    .contact-card{ background:none !important; border:1px solid #ddd !important; padding:14px !important; text-align:left !important; }
+    .contact-card .identity-photo{ display:none !important; }
+    .contact-card h2{ font-size:14px !important; margin-bottom:4px !important; }
+    .contact-card p{ font-size:9.5px !important; margin-bottom:8px !important; }
+    .contact-links{ justify-content:flex-start !important; gap:14px !important; }
+    .contact-links .btn{
+      padding:0 !important; background:none !important; color:#171A21 !important;
+      border:none !important; font-size:9.5px !important; text-decoration:underline;
+    }
+    .foot-meta{ margin-top:12px !important; font-size:8.5px !important; }
+  }
 </style>
 </head>
 <body>
@@ -530,6 +652,8 @@
   </nav>
 </header>
 
+<button class="pdf-btn" onclick="window.print()" aria-label="Download this page as a PDF">⬇ Download PDF</button>
+
 <main>
   <!-- HERO -->
   <section class="hero">
@@ -544,13 +668,13 @@
         </div>
         <div class="eyebrow">React Native · React JS · Cross‑platform</div>
         <h1>Building apps that fit <span class="accent">in your pocket.</span></h1>
-        <p class="lede">Front-end, mobile &amp; team lead engineer with 6+ years shipping cross-platform apps for banking, healthcare, storage, logistics and social platforms — from first wireframe to App Store, including secured, closed-network environments for financial services clients.</p>
+        <p class="lede">Front-end, mobile &amp; team lead engineer with 6.5+ years shipping cross-platform apps for banking, healthcare, storage, logistics and social platforms — from first wireframe to App Store, including secured, closed-network environments for financial services clients.</p>
         <div class="hero-cta">
           <a class="btn btn-primary" href="#projects">View projects →</a>
           <a class="btn btn-ghost" href="mailto:nitinswami59@gmail.com">Get in touch</a>
         </div>
         <div class="hero-meta">
-          <div class="hero-stat"><div class="num">6+</div><div class="label">Years experience</div></div>
+          <div class="hero-stat"><div class="num">6.5+</div><div class="label">Years experience</div></div>
           <div class="hero-stat"><div class="num">16+</div><div class="label">Apps shipped</div></div>
           <div class="hero-stat"><div class="num">3</div><div class="label">Companies</div></div>
           <div class="hero-stat"><div class="num">Team Lead</div><div class="label">Current scope</div></div>
@@ -596,9 +720,9 @@
           </div>
           <div class="commit-org">Tata Consultancy Services</div>
           <ul>
-            <li>Responsible for developing and maintaining production-grade UI for mobile applications.</li>
-            <li>Handle post-production defect fixes, performance optimizations, and production support activities.</li>
-            <li>Convert UX designs and business requirements into real-time, scalable mobile UI aligned with user stories.</li>
+            <li>Led the analysis and optimization of IT processes, resulting in a 15% improvement in system efficiency and reducing downtime by 10%</li>
+            <li>Developed and implemented data-driven strategies improving operational workflows, enhancing team productivity by 20% and ensuring timely project delivery</li>
+            <li>Collaborated with cross-functional teams to design scalable IT solutions, contributing to a 25% reduction in incident response time and elevating service quality standards.</li>
             <li>Monitor application health using Datadog and Qualtrics, and manage incidents &amp; changes through ServiceNow.</li>
           </ul>
 
@@ -628,10 +752,10 @@
           </div>
           <div class="commit-org">Mobisoft Infotech Pvt. Ltd.</div>
           <ul>
-            <li>Develop high-quality, scalable and maintainable mobile applications using React Native.</li>
-            <li>Work with native modules as and when required, using native APIs for tight integrations on Android and iOS.</li>
-            <li>Integrate third-party APIs and libraries across production apps.</li>
-            <li>Participate in code reviews and maintain code quality across the team.</li>
+            <li>Designed and built scalable front-end components for web and mobile platforms using React and React Native while cutting down overall bug counts.</li>
+            <li>Led a brand-new cross-platform application project from ground up to deployment, meeting all client requirements 2 weeks ahead of target deadline.</li>
+            <li>code optimization strategies within Android Studio and Xcode environments to improve app responsiveness and cut load times by 20%.</li>
+            <li>Fostered a collaborative engineering culture by mentoring junior team members and streamlining integration workflows with API and DevOps teams.</li>
           </ul>
         </div>
 
@@ -642,9 +766,10 @@
           </div>
           <div class="commit-org">Numino Labs Pvt. Ltd.</div>
           <ul>
-            <li>Developed new UI features using React Native, translating designs and wireframes into high-quality code.</li>
-            <li>Optimized components for maximum performance across different mobile devices and browsers.</li>
-            <li>Identified and fixed bugs, performed unit testing, and integrated with existing testing frameworks.</li>
+            <li>Developed and deployed responsive user interface features for mobile applications using React Native and JavaScript.</li>
+            <li>Managed complex application states efficiently by implementing Redux and Context API architectures.</li>
+            <li>Translated intricate UI/UX wireframes into pixel-perfect, scalable, and high-quality production code.</li>
+            <li>Optimized front-end components across diverse mobile devices and browsers, successfully reducing app crashes by 15% and boosting performance scores.</li>
           </ul>
         </div>
       </div>
@@ -798,7 +923,7 @@
   const projects = [
     {
       id: 1, name: "SBI Cards", category: "Banking · Financial Services",
-      date: "Mar 2025 — Present", color: ["#F5B74B","#9B8CFF"],
+      date: "Jan 2026 — Aug 2026", color: ["#F5B74B","#9B8CFF"],
       desc: "SBI Cards FeetOnline App — led the front-end team as Team Lead on a financial services client engagement.",
       bullets: [
         "Set the architectural vision, chose the tools/frameworks, and contributed hands-on to technical design and code.",
@@ -812,7 +937,7 @@
     },
     {
       id: 2, name: "UHG Healthcare App", category: "Healthcare",
-      date: "Mar 2025 — Present", color: ["#5FD3D9","#9B8CFF"],
+      date: "Mar 2025 — Dec 2025", color: ["#5FD3D9","#9B8CFF"],
       desc: "Healthcare mobile app converting UX designs into real-time, production-ready UI.",
       bullets: [
         "Delivered user-story-based UI features and handled post-production defect fixes to improve app stability.",
